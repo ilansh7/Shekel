@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI.WebControls;
-using System.Text.RegularExpressions;
-using System.Drawing;
 
 namespace Shekel
 {
@@ -37,10 +34,6 @@ namespace Shekel
                 DataTable dt = new DataTable();
                 adpt.Fill(dt);
                 
-                //sql = "select groupCode, groupName from [dbo].[Groups] order by groupName";
-                //SqlDataAdapter adpt = new SqlDataAdapter(sql, conn);
-                //DataTable dt = new DataTable();
-                //adpt.Fill(dt);
                 ddlGroups.DataSource = dt;
                 ddlGroups.DataBind();
                 ddlGroups.DataTextField = "Name";// "groupName";
@@ -74,13 +67,6 @@ namespace Shekel
                 ddlFactory.Items.Insert(0, new ListItem(String.Empty, String.Empty));
                 ddlFactory.SelectedIndex = 0;
             }
-
-            //SqlConnection con = new SqlConnection(connetionString);
-
-            //connetionString = @"Data Source=WIN-50GP30FGO75;Initial Catalog=Demodb ;User ID=sa;Password=demol23";
-            //conn = new SqlConnection(connetionString);
-            //conn.Open();
-
         }
 
         protected void btnCustomersAndGroups_Click(object sender, EventArgs e)
@@ -109,14 +95,8 @@ namespace Shekel
             shekel.factoryCode = int.Parse(ddlFactory.SelectedValue);
             shekel.groupCode = int.Parse(ddlGroups1.SelectedValue);
             int res = webService.AddCustomer(connetionString, shekel);
-            //gvCustomersAndGroups.DataSource = dt;
-            //gvCustomersAndGroups.DataBind();
-            //lblGv.Text = String.Empty;
-            //if (dt.Rows.Count <= 0)
-            //{
-            //    lblGv.Text = "No results found for Group " + ddlGroups.SelectedItem;
-            //}
-            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + res.ToString() + "');", true);
+
+            //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + res.ToString() + "');", true);
         }
 
         protected void ddlGroups1_SelectedIndexChanged(object sender, EventArgs e)

@@ -56,11 +56,6 @@ namespace Shekel
                 SqlDataAdapter adpt = new SqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(dt);
-
-                //SqlCommand cmd = new SqlCommand("select * from [dbo].[V_CustomersAndGroups] where groupCode = '" + groupId + "'", conn);
-                //SqlDataAdapter Adpt = new SqlDataAdapter(cmd);
-                //dt = new DataTable();
-                //Adpt.Fill(dt);
             }
 
             return dt;
